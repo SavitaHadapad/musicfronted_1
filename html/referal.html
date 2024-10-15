@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula - Referral Code</title>
+    <link rel="stylesheet" href="/cssfiles/referal.css">
+       
+</head>
+<body>
+    <div class="logo-container">
+        <div class="logo">✨ Nebula ✨</div>
+    </div>
+    <div class="container">
+        <h1>Your Referral Code</h1>
+        <div id="referralCode" class="code-container">Generating...</div>
+        <div class="button-group">
+            <button id="shareBtn">Share</button>
+            <button id="copyBtn">Copy</button>
+        </div>
+        <button class="back-btn" onclick="window.location.href='nebula2.html'">Back to Home</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function generateReferralCode() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 8; i++) {
+                code += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return code;
+        }
+
+        function displayReferralCode() {
+            const codeContainer = document.getElementById('referralCode');
+            const code = generateReferralCode();
+            codeContainer.textContent = code;
+        }
+
+        function copyToClipboard() {
+            const codeContainer = document.getElementById('referralCode');
+            const code = codeContainer.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showMessage('Code copied to clipboard!');
+            }, () => {
+                showMessage('Failed to copy code. Please try again.');
+            });
+        }
+
+        function shareCode() {
+            const code = document.getElementById('referralCode').textContent;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Nebula Referral Code',
+                    text: `Here's my Nebula referral code: ${code}`
+                }).then(() => {
+                    showMessage('Code shared successfully!');
+                }).catch(() => {
+                    showMessage('Failed to share code. Please try again.');
+                });
+            } else {
+                showMessage('Sharing is not supported on this device.');
+            }
+        }
+
+        function showMessage(text) {
+            const message = document.getElementById('message');
+            message.textContent = text;
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayReferralCode();
+            document.getElementById('copyBtn').addEventListener('click', copyToClipboard);
+            document.getElementById('shareBtn').addEventListener('click', shareCode);
+        });
+    </script>

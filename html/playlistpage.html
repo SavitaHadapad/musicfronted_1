@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula - Your Playlist</title>
+    <link rel="stylesheet" href="/cssfiles/playlistpage.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nebula Playlist</h1>
+        <form id="songForm">
+            <input type="text"id="playlistname"placeholder="playlistname" required>
+            <input type="text" id="songName" placeholder="Song Name" required>
+            <input type="text" id="artistName" placeholder="Artist Name" required>
+            <button type="submit">Add Song</button>
+        </form>
+        <ul id="playlist"></ul>
+        <div id="message">Yaehhhh! New song added!</div>
+        <button class="back-btn" onclick="history.back()">Back</button>
+    </div>
+
+    <script>
+        document.getElementById('songForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var songName = document.getElementById('songName').value;
+            var artistName = document.getElementById('artistName').value;
+            var playlist = document.getElementById('playlist');
+            var li = document.createElement('li');
+            li.textContent = songName + ' by ' + artistName;
+            playlist.appendChild(li);
+            document.getElementById('songForm').reset();
+            var message = document.getElementById('message');
+            message.style.display = 'block';
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

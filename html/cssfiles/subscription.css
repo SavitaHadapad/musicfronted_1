@@ -1,0 +1,220 @@
+:root {
+    --color-black: #807474;
+    --color-dark-gray: #1a1a1a;
+    --color-gray: #333333;
+    --color-light-gray: #cccccc;
+    --color-white: #ffffff;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--color-dark-gray), var(--color-black));
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(98, 93, 93, 0.5);
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: pulsate 2s infinite alternate;
+}
+
+@keyframes pulsate {
+    from { opacity: 1; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    to { opacity: 0.8; text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+}
+
+main {
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-light-gray);
+    font-weight: 300;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 0.8s forwards;
+}
+
+@keyframes fadeInDown {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: var(--color-light-gray);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 0 10px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-gray);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--color-white);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--color-light-gray);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.plans-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background-color: var(--color-gray);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.plan:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.plan h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.plan-price {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.plan-price span {
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--color-light-gray);
+}
+
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    color: var(--color-light-gray);
+}
+
+.plan li {
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.plan li::before {
+    content: "✓";
+    color: var(--color-white);
+    margin-right: 0.5rem;
+}
+
+.subscribe-btn {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.subscribe-btn:hover {
+    background-color: var(--color-light-gray);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .plans-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .plan {
+        width: 100%;
+        max-width: none;
+    }
+}

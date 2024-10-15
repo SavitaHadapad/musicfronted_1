@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Music Subscription</title>
+    <link rel="stylesheet" href="/cssfiles/subscription.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">Nebula</div>
+    </header>
+    <main>
+        <h2>Choose Your Subscription Plan</h2>
+        <div class="toggle-container">
+            <span>Monthly</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="frequency-toggle">
+                <span class="slider"></span>
+            </label>
+            <span id="frequency-label">Yearly</span>
+        </div>
+        <div class="plans-container">
+            <div class="plan">
+                <h3>Basic</h3>
+                <div class="plan-price">$<span id="basic-price">19.99</span><span>/month</span></div>
+                <ul>
+                    <li>Ad-free music streaming</li>
+                    <li>Listen offline</li>
+                    <li>High quality audio</li>
+                </ul>
+                <button class="subscribe-btn">Subscribe Now</button>
+            </div>
+            <div class="plan">
+                <h3>Premium</h3>
+                <div class="plan-price">$<span id="premium-price">29.99</span><span>/month</span></div>
+                <ul>
+                    <li>All Basic features</li>
+                    <li>Exclusive content</li>
+                    <li>Early access to new releases</li>
+                    <li>Personalized playlists</li>
+                </ul>
+                <button class="subscribe-btn">Subscribe Now</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const frequencyToggle = document.getElementById('frequency-toggle');
+        const frequencyLabel = document.getElementById('frequency-label');
+        const basicPrice = document.getElementById('basic-price');
+        const premiumPrice = document.getElementById('premium-price');
+
+        const prices = {
+            monthly: { basic: 19.99, premium: 29.99 },
+            yearly: { basic: 199.99, premium: 299.99 }
+        };
+
+        let currentFrequency = 'monthly';
+
+        frequencyToggle.addEventListener('change', () => {
+            currentFrequency = currentFrequency === 'monthly' ? 'yearly' : 'monthly';
+            updatePrices();
+        });
+
+        function updatePrices() {
+            basicPrice.textContent = prices[currentFrequency].basic.toFixed(2);
+            premiumPrice.textContent = prices[currentFrequency].premium.toFixed(2);
+            frequencyLabel.textContent = currentFrequency === 'monthly' ? 'Yearly' : 'Monthly';
+
+            const priceSpans = document.querySelectorAll('.plan-price span:last-child');
+            priceSpans.forEach(span => {
+                span.textContent = `/${currentFrequency === 'monthly' ? 'month' : 'year'}`;
+            });
+        }
+
+        // Animate feature list items
+        const featureItems = document.querySelectorAll('.plan li');
+        featureItems.forEach((item, index) => {
+            item.style.animationDelay = `${0.5 + index * 0.1}s`;
+        });
+
+        // Animate plan cards
+        const planCards = document.querySelectorAll('.plan');
+        planCards.forEach((card, index) => {
+            card.style.animationDelay = `${0.3 + index * 0.2}s`;
+        });
+    </script>
+</body>

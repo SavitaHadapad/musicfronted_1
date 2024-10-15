@@ -1,0 +1,84 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #d0d0d0;
+        }
+        .back-btn {
+            background-color: #bdbdbd;
+            margin-top: 1rem;
+        }
+        .back-btn:hover {
+            background-color: #a9a9a9;
+        }
+        #playlist {
+            margin-top: 1rem;
+            padding: 0;
+            list-style-type: none;
+        }
+        #playlist li {
+            background-color: #f9f9f9;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #message {
+            display: none;
+            background-color: #e0e0e0;
+            color: #333;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            animation: slideDown 0.5s ease;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }

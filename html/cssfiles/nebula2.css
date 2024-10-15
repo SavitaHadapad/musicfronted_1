@@ -1,0 +1,321 @@
+
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #7c9aa9;
+    margin: 0;
+    padding: 0;
+    background-color:rgb(48, 10, 131);
+    color: #09090b;
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #c2d8da;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-bar {
+    
+        width: 40%; /* Adjust width as needed */
+        padding: 10px 20px; /* Added padding for better spacing */
+        border-radius: 50px; /* Makes the edges circular */
+        border: 1px solid #788586; /* Optional border color */
+        font-size: 16px;
+        background: linear-gradient(135deg, #cdd7db, #d3d3d3, #d6d2d2); /* Gradient shades of gray, white, and black */
+        color: rgb(74, 124, 165); /* Text color */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for a 3D effect */
+        outline: none; /* Removes the outline when clicked */
+        transition: all 0.3s ease; /* Smooth transition effect */
+      }
+      
+      .search-bar::placeholder {
+        color: #7da0af; /* Placeholder text color */
+      }
+      
+      .search-bar:focus {
+        box-shadow: 0 4px 15px rgba(66, 61, 61, 0.3); /* Stronger shadow when focused */
+        border: 1px solid #688695; /* Slight border color change when focused */
+      }
+      
+  
+
+.header h1 {
+    margin: 0;
+}
+
+.header-icons {
+   
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-icons img {
+    
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+/* .login-button {
+    background-color: #4a4a4a;
+    height: 60px;
+    color: #ffffff;
+    border: none;
+    border-bottom: #5a5a5a;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+} */
+/* 
+.login-button:hover {
+    background-color: #5a5a5a;
+} */
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.left-card {
+    color: black;
+    background-color:rgb(111, 118, 189);
+    flex: 1;
+    width: 450px;
+}
+
+.middle-card {
+   background-color: rgb(98, 117, 159);
+    background-position:center;
+    position:relative;
+}
+
+.right-card {
+    text-emphasis-color: black;
+    background-color: rgb(111, 118, 189);
+    flex: 1;
+    width: 550px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+  button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: linear-gradient(
+      320deg,
+      rgba(209, 215, 215, 0.678),
+      rgba(229, 208, 229, 0.93)
+      
+    );
+     row-gap: 60px;
+    z-index: 1;
+    transition: 3s;
+    gap: 20px;
+  }
+  
+  button:hover::before {
+    animation: rotate 1s;
+    transition: all 0.5s;
+  }  
+
+
+  @keyframes rotate { 
+     0% {
+      transform: rotateY(180deg);
+    }
+  
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
+   
+
+button:hover {
+    background-color: #c7b4cc;
+}
+
+button {
+    background: transparent;
+    color: #fff;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    padding: 20px 30px;
+    cursor: pointer;
+    perspective: 30rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(150, 116, 116, 0.308);
+    padding: 20px;
+    margin-right: 45px;
+    margin-bottom: 20px;
+    }
+    button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: linear-gradient( 320deg, rgba(145, 174, 190, 0.678), rgba(34, 27, 34, 0.93) );
+    z-index: 1;
+    transition: 3s;
+    gap: 20px;
+    }
+
+
+.artist-list, .song-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.artist-item, .song-item {
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.artist-thumbnail, .song-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+/* 
+.music-wave {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.music-wave span {
+    width: 4px;
+    background-color: #ffffff;
+    animation: wave 1s infinite alternate;
+}
+
+.music-wave span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.music-wave span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.music-wave span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.music-wave span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+@keyframes wave {
+    0% {
+        height: 5px;
+    }
+    100% {
+        height: 30px;
+    }
+} */
+
+.current-song-thumbnail {
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.nebula-animation {
+    font-size: 24px;
+    font-weight: bold;
+    animation: glow 2s infinite alternate;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #c2d8da;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+    }
+    100% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    }
+}
+
+.currently-playing {
+    background-color: #9cb4ba;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+.currently-playing-content {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    
+}  
+
+
+.currently-playing-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.currently-playing-info {
+    flex: 1;
+}
+
+.currently-playing h3 {
+    margin: 0 0 10px 0;
+}
